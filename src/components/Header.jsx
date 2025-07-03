@@ -1,13 +1,6 @@
-import { useMemo } from 'react'
 
-export default function Header({cart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart}) {
-
-    //derived state
-
-    //useMemo is used to avoid rendering the app many times, unless we tell it to render. and its a hook focused to performance
-    const isEmpty = useMemo(() => cart.length == 0, [cart]) 
-    const cartTotal = useMemo( () => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart] )
-    
+export default function Header({cart, removeFromCart, decreaseQuantity, increaseQuantity, clearCart, isEmpty, cartTotal}) {  
+     
     return (
         <header className="py-5 header">
         <div className="container-xl">
